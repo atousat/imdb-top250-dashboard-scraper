@@ -41,7 +41,6 @@ The final dataset includes the following columns:
 - `star`
 - `gross_us_canada`
 
-> Note: The script uses the column name `directore` in the code.
 
 ---
 
