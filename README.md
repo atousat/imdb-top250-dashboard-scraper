@@ -80,3 +80,17 @@ List values are converted into comma-separated strings for easier analysis.
 The final cleaned dataset is saved as:
 ```text
 imdb_Top250Movies.xlsx
+```
+---
+
+## Dashboard Preview
+
+### IMDb Dashboard Overview
+![IMDb Dashboard Overview](images/overview.png)
+
+### Genre vs Parental Guide
+![Genre vs Parental Guide](images/genre_vs_parental_guide.png)
+
+### Box Office by Genre
+![Box Office by Genre](images/box_office_by_genre.png)
+
