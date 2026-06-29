@@ -36,7 +36,7 @@ The final dataset includes the following columns:
 - `parental_guide`
 - `runtime`
 - `genre`
-- `directore`
+- `director`
 - `writer`
 - `star`
 - `gross_us_canada`
