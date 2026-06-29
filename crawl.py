@@ -44,14 +44,14 @@ def get_directors_names(link):
     try:
         # get director in same page
         movie_directores = soup.find("span", string="Director").find_parent("li")
-        directore = [directors.get_text() for directors in movie_directores.find_all("a")]
+        director = [directors.get_text() for directors in movie_directores.find_all("a")]
     except:
         try:
             # get directors in same page
             movie_directores = soup.find("span", string="Directors").find_parent("li")
-            directore = [directors.get_text() for directors in movie_directores.find_all("a")]
+            director = [directors.get_text() for directors in movie_directores.find_all("a")]
         except:
-            # get directore in another page
+            # get director in another page
             movie_directores = soup.find("a", string="Directors").find_parent("li")
             url_href = movie_directores.find("a")["href"]
             url_site = "https://www.imdb.com"
@@ -60,12 +60,12 @@ def get_directors_names(link):
             response = requests.get(url, headers=headers) 
             soup = BeautifulSoup(response.text, "html.parser")
 
-            movie_directore = soup.find("span", string="Directors").find_parent("section")
+            movie_director = soup.find("span", string="Directors").find_parent("section")
             class_item = "ipc-link ipc-link--base name-credits--title-text name-credits--title-text-big"
-            directore = [stars.get_text() for stars in movie_directore.find_all("a", class_=class_item)]
+            director = [stars.get_text() for stars in movie_director.find_all("a", class_=class_item)]
 
 
-    return directore
+    return director
 
 
 # --------- Stars Names ---------------
@@ -174,7 +174,7 @@ def data_per_page(link):
     genre = [genre.string for genre in movie_genres]
 
     # 6 - directors
-    directore = get_directors_names(link)
+    director = get_directors_names(link)
 
     # 7 - writers
     writer = get_writers_name(link)
@@ -200,7 +200,7 @@ def data_per_page(link):
         parental_guide,
         runtime,
         genre,
-        directore,
+        director,
         writer,
         star,
         gross_us_canada
@@ -239,7 +239,7 @@ def list_to_str(dataframe, columns_name):
     dataframe[columns_name] = dataframe[columns_name].apply(lambda x: ",".join(x))
     return dataframe
 
-columns_to_change = ["genre", "directore", "writer", "star"] 
+columns_to_change = ["genre", "director", "writer", "star"] 
 for col in columns_to_change:
     list_to_str(df, col)
 
